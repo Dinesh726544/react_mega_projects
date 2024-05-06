@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Post } from './Post'
 import {PostList as PostListData} from '../store/PostListStore'
 import { Message } from './index'
@@ -8,10 +8,15 @@ export function PostList() {
 
     const handlePostClick = () => {
 
+    }
+
+    const [dataFatched,setDatafatch] = useState(false)
+    if(!dataFatched) {
         fetch('https://dummyjson.com/posts')
         .then(res => res.json())
         // .then(console.log);
         .then(data => addPosts(data.posts));
+        setDatafatch(true)
     }
 
     return (
