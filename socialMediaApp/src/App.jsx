@@ -1,11 +1,7 @@
 // import './App'
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Header } from './components/Header';
-import { Sidebar } from './components/Sidebar';
-import { Footer } from './components/Footer';
-import { CreatePost } from './components/CreatePost';
-import { PostList } from './components/PostList';
+import { Header,Sidebar,Footer,CreatePost,PostList } from './components/index';
 import PostListProvider from './store/PostListStore';
 function App() {
   
@@ -26,7 +22,7 @@ function App() {
         <div>
           <Sidebar selectedTab={selectedTab} handleClick={handleClick} />
         </div>
-        <div>
+        <div className='w-[100%]'>
           <Header/>
           {selectedTab === 'Home' ? <PostList/>:<CreatePost/>}
           <Footer/>
