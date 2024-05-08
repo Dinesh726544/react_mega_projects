@@ -4,6 +4,7 @@ import { Footer } from './Footer';
 import { CreatePost } from './CreatePost';
 import { PostList } from './PostList';
 import { Message } from './Message';
+import { Loading } from './Loading';
 
 export {
     Header,
@@ -11,5 +12,6 @@ export {
     Footer,
     CreatePost,
     PostList,
-    Message
+    Message,
+    Loading
 }
