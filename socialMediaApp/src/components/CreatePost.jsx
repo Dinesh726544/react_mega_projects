@@ -20,13 +20,30 @@ export function CreatePost() {
     const reactions = reactionsElement.current.value;
     const tags = tagsElement.current.value.split(" ");   
 
-    userIdElement.current.value = "";
-    postTitleElement.current.value = "";
-    postBodyElement.current.value = "";
-    reactionsElement.current.value = "";
-    tagsElement.current.value = "";
+    // userIdElement.current.value = "";
+    // postTitleElement.current.value = "";
+    // postBodyElement.current.value = "";
+    // reactionsElement.current.value = "";
+    // tagsElement.current.value = "";
 
-    addPost(userId, postTitle, postBody, reactions, tags); 
+
+    
+    fetch('https://dummyjson.com/posts/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            title: postTitle,
+            body: postBody,
+            reactions: reactions,
+            userId: userId,
+            tags: tags,
+        })
+    })
+    .then(res => res.json())
+    .then(postData => addPost(postData));
+
+    /* //this will take all the val given by user while filling form
+    addPost(userId, postTitle, postBody, reactions, tags); */
   }
 
     return (
